@@ -42,6 +42,13 @@ function App() {
     setTodoList(list);
   };
 
+  const deleteItem = (id) => {
+    const list = [...todoList];
+    const updatedList = list.filter((item) => item.id !== id);
+
+    setTodoList(updatedList);
+  };
+
   return (
     <div className="app">
       <Header />
@@ -50,7 +57,11 @@ function App() {
         inputChange={handleInputChange}
         addItem={addItem}
       />
-      <ToDoList todoList={todoList} checkBoxChange={handleCheckBoxChange} />
+      <ToDoList
+        todoList={todoList}
+        checkBoxChange={handleCheckBoxChange}
+        deleteItem={deleteItem}
+      />
       <EditSection />
     </div>
   );
