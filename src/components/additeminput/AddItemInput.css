@@ -1,0 +1,42 @@
+.input-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22em;
+}
+
+.add-item-input {
+  width: 85%;
+  background: #ffffff;
+  border-radius: 0.5em 0 0 0.5em;
+}
+
+.add-item-input,
+.add-item-btn {
+  padding: 1em;
+  font-weight: 600;
+}
+
+.add-item-btn {
+  width: 20%;
+  background: #61dafb;
+  border-radius: 0 0.5em 0.5em 0;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 576px) {
+  .input-form {
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+  }
+
+  .add-item-input {
+    border-radius: 0.5em;
+  }
+
+  .add-item-btn {
+    border-radius: 0.5em;
+    width: auto;
+  }
+}

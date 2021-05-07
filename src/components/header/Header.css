@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1em;
+  font-size: 1.3rem;
+  padding-top: 1.5em;
+}
+
+.header__logo {
+  width: 10em;
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    font-size: calc(1rem + 1vw);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .header {
+    font-size: calc(0.7rem + 1vw);
+  }
+}

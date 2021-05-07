@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import "./App.css";
 import Header from "../header/Header";
-import InputForm from "../inputform/InputForm";
+import AddItemInput from "../additeminput/AddItemInput";
 import ToDoList from "../todolist/ToDoList";
-import uuid from "react-uuid";
 import EditSection from "../editsection/EditSection";
+import uuid from "react-uuid";
 
 function App() {
-  return <div></div>;
+  return (
+    <div className="app">
+      <Header />
+      <AddItemInput />
+      <ToDoList />
+      <EditSection />
+    </div>
+  );
 }
 
 export default App;

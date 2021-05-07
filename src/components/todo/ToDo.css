@@ -1,0 +1,55 @@
+.todo {
+  width: 100%;
+  display: flex;
+  position: relative;
+  padding: 0.5em 1em;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.7em;
+}
+
+.todo:not(:last-of-type) {
+  border-bottom: 0.1em solid #d1d1d1;
+}
+
+.todo h5 {
+  color: #000000;
+  font-weight: 400;
+  max-width: 10em;
+  word-wrap: break-word;
+}
+
+.todo-btn-container {
+  display: flex;
+  gap: 0.7em;
+  margin-left: auto;
+}
+
+.todo-edit-btn,
+.todo-del-btn {
+  padding: 0.7em;
+  border-radius: 0.5em;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.todo-edit-btn {
+  background: #61dafb;
+}
+
+.todo-del-btn {
+  background: #ff4d4d;
+}
+
+@media only screen and (max-width: 576px) {
+  .todo {
+    flex-direction: column;
+  }
+  .todo-btn-container {
+    margin: 0 auto;
+  }
+  .todo h5 {
+    max-width: 80%;
+  }
+}
