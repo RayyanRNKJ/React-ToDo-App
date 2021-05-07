@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "../header/Header";
 import AddItemInput from "../additeminput/AddItemInput";
@@ -11,6 +11,21 @@ function App() {
   const [todoList, setTodoList] = useState([]);
   const [doEditItem, setDoEditItem] = useState("");
   const [doEditItemValue, setDoEditItemValue] = useState("");
+
+  useEffect(() => {
+    if (localStorage.getItem("list") === null) {
+      localStorage.setItem("list", JSON.stringify(todoList));
+    } else if (
+      todoList.length === 0 &&
+      JSON.parse(localStorage.getItem("list")).length > 0
+    ) {
+      setTodoList(JSON.parse(localStorage.getItem("list")));
+    }
+
+    if (todoList.length > 0) {
+      localStorage.setItem("list", JSON.stringify(todoList));
+    }
+  }, [todoList]);
 
   const handleInputChange = (inputValue) => {
     setNewItem(inputValue);
@@ -46,7 +61,12 @@ function App() {
 
   const deleteItem = (id) => {
     const list = [...todoList];
+    const elementIndex = list.findIndex((element) => element.id === id);
     const updatedList = list.filter((item) => item.id !== id);
+    const localStorageList = JSON.parse(localStorage.getItem("list"));
+
+    localStorageList.splice(elementIndex, 1);
+    localStorage.setItem("list", JSON.stringify(localStorageList));
 
     setTodoList(updatedList);
   };
