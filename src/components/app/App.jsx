@@ -9,6 +9,8 @@ import uuid from "react-uuid";
 function App() {
   const [newItem, setNewItem] = useState("");
   const [todoList, setTodoList] = useState([]);
+  const [doEditItem, setDoEditItem] = useState("");
+  const [doEditItemValue, setDoEditItemValue] = useState("");
 
   const handleInputChange = (inputValue) => {
     setNewItem(inputValue);
@@ -49,6 +51,31 @@ function App() {
     setTodoList(updatedList);
   };
 
+  const findEditItem = (id) => {
+    const list = [...todoList];
+    const elementIndex = list.findIndex((element) => element.id === id);
+
+    setDoEditItem(list[elementIndex]);
+    setDoEditItemValue(list[elementIndex].value);
+  };
+
+  const handleEditItemValueChange = (value) => {
+    setDoEditItemValue(value);
+  };
+
+  const editItem = (id, value) => {
+    const list = [...todoList];
+    let elementIndex = list.findIndex((element) => element.id === id);
+
+    list[elementIndex] = { ...list[elementIndex], value: value };
+
+    setTodoList(list);
+  };
+
+  const handleEditButtonClick = () => {
+    setDoEditItem("");
+  };
+
   return (
     <div className="app">
       <Header />
@@ -61,8 +88,15 @@ function App() {
         todoList={todoList}
         checkBoxChange={handleCheckBoxChange}
         deleteItem={deleteItem}
+        findEditItem={findEditItem}
       />
-      <EditSection />
+      <EditSection
+        doEditItem={doEditItem}
+        doEditItemValue={doEditItemValue}
+        editItemValueChange={handleEditItemValueChange}
+        editItem={editItem}
+        editButtonClick={handleEditButtonClick}
+      />
     </div>
   );
 }

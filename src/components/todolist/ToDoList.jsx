@@ -3,7 +3,7 @@ import "./ToDoList.css";
 import ToDo from "../todo/ToDo";
 import uuid from "react-uuid";
 
-function ToDoList({ todoList, checkBoxChange, deleteItem }) {
+function ToDoList({ todoList, checkBoxChange, deleteItem, findEditItem }) {
   const todoLists = todoList.map((todo) => {
     return (
       <ToDo
@@ -11,6 +11,7 @@ function ToDoList({ todoList, checkBoxChange, deleteItem }) {
         todo={todo}
         checkBoxChange={checkBoxChange}
         deleteItem={deleteItem}
+        findEditItem={findEditItem}
       />
     );
   });
