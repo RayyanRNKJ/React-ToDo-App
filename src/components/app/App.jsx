@@ -7,11 +7,37 @@ import EditSection from "../editsection/EditSection";
 import uuid from "react-uuid";
 
 function App() {
+  const [newItem, setNewItem] = useState("");
+  const [todoList, setTodoList] = useState([]);
+
+  const handleInputChange = (inputValue) => {
+    setNewItem(inputValue);
+  };
+
+  const addItem = () => {
+    if (newItem !== "") {
+      const addNewItem = {
+        id: uuid(),
+        value: newItem,
+        isDone: false,
+      };
+
+      const list = [...todoList];
+      list.unshift(addNewItem);
+
+      setTodoList(list);
+      setNewItem("");
+    }
+  };
   return (
     <div className="app">
       <Header />
-      <AddItemInput />
-      <ToDoList />
+      <AddItemInput
+        newItem={newItem}
+        inputChange={handleInputChange}
+        addItem={addItem}
+      />
+      <ToDoList todoList={todoList} />
       <EditSection />
     </div>
   );
