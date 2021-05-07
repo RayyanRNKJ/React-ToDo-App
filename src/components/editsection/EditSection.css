@@ -18,8 +18,8 @@
 }
 
 .content {
-  width: 500px;
-  height: 300px;
+  width: 20em;
+  height: 10em;
   z-index: 1;
   position: relative;
   top: 100%;
@@ -44,6 +44,9 @@
 .btn-container {
   display: flex;
   gap: 0.7em;
+  flex-wrap: wrap;
+  padding: 0 1em;
+  justify-content: center;
 }
 
 .edit-btn,
@@ -72,4 +75,10 @@
 
 .edit-section.active .content {
   top: 0;
+}
+
+@media only screen and (max-width: 576px) {
+  .content {
+    width: 80%;
+  }
 }

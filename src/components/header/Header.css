@@ -14,12 +14,6 @@
 
 @media only screen and (max-width: 768px) {
   .header {
-    font-size: calc(1rem + 1vw);
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  .header {
-    font-size: calc(0.7rem + 1vw);
+    font-size: calc(0.8rem + 1vw);
   }
 }

@@ -19,7 +19,7 @@ function EditSection({
           value={doEditItemValue}
           onChange={(event) => editItemValueChange(event.target.value)}
         />
-        <div className="edit-btn-container">
+        <div className="btn-container">
           <button
             className="edit-btn"
             onClick={() => {

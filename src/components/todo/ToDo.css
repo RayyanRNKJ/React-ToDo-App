@@ -13,7 +13,17 @@
   border-bottom: 0.1em solid #d1d1d1;
 }
 
-.todo h5 {
+.todo-input-h5 {
+  display: flex;
+  gap: 0.5em;
+  align-items: flex-start;
+}
+
+.todo-input-h5 input {
+  margin-top: 0.3em;
+}
+
+.todo-input-h5 h5 {
   color: #000000;
   font-weight: 400;
   max-width: 10em;
@@ -46,9 +56,11 @@
   .todo {
     flex-direction: column;
   }
+
   .todo-btn-container {
-    margin: 0 auto;
+    margin: 0;
   }
+
   .todo h5 {
     max-width: 80%;
   }
