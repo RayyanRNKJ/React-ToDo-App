@@ -1,10 +1,14 @@
 import React from "react";
 import "./ToDo.css";
 
-function ToDo({ todo }) {
+function ToDo({ todo, checkBoxChange }) {
   return (
     <div className="todo">
-      <input type="checkbox" />
+      <input
+        type="checkbox"
+        checked={todo.isDone}
+        onChange={() => checkBoxChange(todo.id)}
+      />
       <h5>{todo.value}</h5>
       <div className="todo-btn-container">
         <button className="todo-edit-btn">Edit</button>

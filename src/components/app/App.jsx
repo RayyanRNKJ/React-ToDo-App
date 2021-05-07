@@ -29,6 +29,19 @@ function App() {
       setNewItem("");
     }
   };
+
+  const handleCheckBoxChange = (id) => {
+    const list = [...todoList];
+    let elementIndex = list.findIndex((element) => element.id === id);
+
+    list[elementIndex] = {
+      ...list[elementIndex],
+      isDone: !list[elementIndex].isDone,
+    };
+
+    setTodoList(list);
+  };
+
   return (
     <div className="app">
       <Header />
@@ -37,7 +50,7 @@ function App() {
         inputChange={handleInputChange}
         addItem={addItem}
       />
-      <ToDoList todoList={todoList} />
+      <ToDoList todoList={todoList} checkBoxChange={handleCheckBoxChange} />
       <EditSection />
     </div>
   );

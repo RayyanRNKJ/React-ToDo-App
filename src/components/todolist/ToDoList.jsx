@@ -3,9 +3,9 @@ import "./ToDoList.css";
 import ToDo from "../todo/ToDo";
 import uuid from "react-uuid";
 
-function ToDoList({ todoList }) {
+function ToDoList({ todoList, checkBoxChange }) {
   const todoLists = todoList.map((todo) => {
-    return <ToDo key={uuid()} todo={todo} />;
+    return <ToDo key={uuid()} todo={todo} checkBoxChange={checkBoxChange} />;
   });
   return <div className="todo-list">{todoLists}</div>;
 }
