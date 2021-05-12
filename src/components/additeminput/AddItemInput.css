@@ -37,6 +37,6 @@
 
   .add-item-btn {
     border-radius: 0.5em;
-    width: auto;
+    width: 50%;
   }
 }

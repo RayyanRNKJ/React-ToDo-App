@@ -42,6 +42,7 @@
   border-radius: 0.5em;
   color: #ffffff;
   font-weight: 500;
+  width: 6em;
 }
 
 .todo-edit-btn {
@@ -59,6 +60,8 @@
 
   .todo-btn-container {
     margin: 0;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .todo h5 {
